@@ -3,145 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>By-biw-shop - ร้านค้าออนไลน์</title>
-    <!-- โหลด Font Prompt จาก Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- โหลด FontAwesome สำหรับไอคอน -->
+    <title>By biw Shop 💜 ร้านค้าสุดคิ้วท์</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <!-- Google Fonts (Mali & Prompt) -->
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lavender: {
+                            50: '#F5F3FF',
+                            100: '#EDE9FE',
+                            200: '#DDD6FE',
+                            300: '#C4B5FD',
+                            400: '#A78BFA',
+                            500: '#8B5CF6',
+                        },
+                        pastel: {
+                            purple: '#F3E8FF',
+                            pink: '#FCE7F3',
+                            cream: '#FAF5FF',
+                            dark: '#5B4B70'
+                        }
+                    },
+                    fontFamily: {
+                        'mali': ['Mali', 'cursive'],
+                        'prompt': ['Prompt', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Prompt', sans-serif;
-        }
-
         body {
-            background-color: #060d19;
-            color: #ffffff;
-            line-height: 1.6;
+            font-family: 'Prompt', sans-serif;
+            background-color: #FAF5FF;
+            color: #5B4B70;
+        }
+        .font-cute {
+            font-family: 'Mali', cursive;
+        }
+    </style>
+</head>
+<body class="bg-pastel-cream min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-purple-100">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="bg-purple-200 text-purple-700 p-2 rounded-full text-lg shadow-inner">💜</span>
+                <span class="font-cute font-bold text-xl text-purple-800 tracking-wide">By biw Shop</span>
+            </a>
+            <button onclick="toggleCart()" class="relative bg-purple-100 hover:bg-purple-200 text-purple-700 px-4 py-2 rounded-full font-cute text-sm transition flex items-center space-x-2 shadow-sm">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>ตะกร้า</span>
+                <span id="cart-count" class="absolute -top-1 -right-1 bg-pink-400 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="max-w-4xl mx-auto px-4 pt-8 pb-4 text-center">
+        <div class="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-200 rounded-3xl p-8 shadow-sm border border-purple-200 relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 text-9xl opacity-10">🐰</div>
+            <h1 class="font-cute font-bold text-3xl md:text-4xl text-purple-900 mb-2">ยินดีต้อนรับสู่ By biw Shop ✨</h1>
+            <p class="text-purple-700 text-sm md:text-base font-light mb-4">ร้านรวมของน่ารักปุ๊กปิ๊ก ส่งตรงถึงมือคุณด้วยใจ 💕</p>
+            <div class="inline-block bg-white/80 backdrop-blur px-4 py-1.5 rounded-full text-xs text-purple-600 font-medium shadow-sm">
+                🎉 ส่งฟรีทุกออเดอร์เมื่อช้อปครบ 300.-
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Catalog Section -->
+    <main class="max-w-4xl mx-auto px-4 py-6 flex-grow w-full">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="font-cute font-bold text-2xl text-purple-900 flex items-center gap-2">
+                <span>🛍️</span> สินค้าแนะนำ
+            </h2>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <!-- สินค้าที่ 1 -->
+            <div class="bg-white rounded-2xl p-4 shadow-sm border border-purple-100 flex flex-col justify-between hover:shadow-md transition">
+                <div>
+                    <div class="bg-purple-50 rounded-xl h-36 flex items-center justify-center text-4xl mb-3 relative overflow-hidden">
+                        🧸
+                        <span class="absolute top-2 right-2 bg-pink-100 text-pink-600 text-[10px] font-bold px-2 py-0.5 rounded-full">ฮิตมาก</span>
+                    </div>
+                    <h3 class="font-cute font-bold text-purple-900 text-base mb-1">น้องหมีพาสเทลนุ่มนิ่ม</h3>
+                    <p class="text-purple-400 text-xs mb-2">พวงกุญแจห้อยกระเป๋าสุดคิ้วท์</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-purple-900 font-bold text-lg">150 ฿</span>
+                    </div>
+                    <button onclick="addToCart('น้องหมีพาสเทลนุ่มนิ่ม', 150)" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-cute text-sm py-2 rounded-xl transition shadow-sm flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-plus text-xs"></i> เพิ่มลงตะกร้า
+                    </button>
+                </div>
+            </div>
+
+            <!-- สินค้าที่ 2 -->
+            <div class="bg-white rounded-2xl p-4 shadow-sm border border-purple-100 flex flex-col justify-between hover:shadow-md transition">
+                <div>
+                    <div class="bg-purple-50 rounded-xl h-36 flex items-center justify-center text-4xl mb-3 relative overflow-hidden">
+                        🎀
+                        <span class="absolute top-2 right-2 bg-purple-100 text-purple-600 text-[10px] font-bold px-2 py-0.5 rounded-full">ใหม่</span>
+                    </div>
+                    <h3 class="font-cute font-bold text-purple-900 text-base mb-1">โบว์ติดผมคุณหนู</h3>
+                    <p class="text-purple-400 text-xs mb-2">สไตล์เกาหลี น่ารักละมุน</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-purple-900 font-bold text-lg">89 ฿</span>
+                    </div>
+                    <button onclick="addToCart('โบว์ติดผมคุณหนู', 89)" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-cute text-sm py-2 rounded-xl transition shadow-sm flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-plus text-xs"></i> เพิ่มลงตะกร้า
+                    </button>
+                </div>
+            </div>
+
+            <!-- สินค้าที่ 3 -->
+            <div class="bg-white rounded-2xl p-4 shadow-sm border border-purple-100 flex flex-col justify-between hover:shadow-md transition">
+                <div>
+                    <div class="bg-purple-50 rounded-xl h-36 flex items-center justify-center text-4xl mb-3 relative overflow-hidden">
+                        ☕
+                    </div>
+                    <h3 class="font-cute font-bold text-purple-900 text-base mb-1">แก้วเซรามิก ลายกระต่าย</h3>
+                    <p class="text-purple-400 text-xs mb-2">พร้อมช้อนและฝาปิดสุดน่ารัก</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-purple-900 font-bold text-lg">220 ฿</span>
+                    </div>
+                    <button onclick="addToCart('แก้วเซรามิก ลายกระต่าย', 220)" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-cute text-sm py-2 rounded-xl transition shadow-sm flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-plus text-xs"></i> เพิ่มลงตะกร้า
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Modal Drawer -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/40 z-50 hidden backdrop-blur-sm flex justify-end">
+        <div class="bg-white w-full max-w-md h-full shadow-2xl p-6 flex flex-col justify-between transform transition-transform">
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b border-purple-100">
+                    <h3 class="font-cute font-bold text-xl text-purple-900 flex items-center gap-2">
+                        <span>🛒</span> ตะกร้าสินค้าของคุณ
+                    </h3>
+                    <button onclick="toggleCart()" class="text-gray-400 hover:text-gray-600 text-xl font-bold">&times;</button>
+                </div>
+                <div id="cart-items" class="py-4 space-y-3 max-h-[60vh] overflow-y-auto">
+                    <p class="text-gray-400 text-center py-8 font-light text-sm">ยังไม่มีสินค้าในตะกร้าจ้า 🥺</p>
+                </div>
+            </div>
+            <div class="border-t border-purple-100 pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="font-cute text-purple-800 text-lg">ยอดรวมทั้งหมด:</span>
+                    <span id="cart-total" class="font-bold text-purple-900 text-xl">0 ฿</span>
+                </div>
+                <button onclick="checkout()" class="w-full bg-pink-400 hover:bg-pink-500 text-white font-cute py-3 rounded-2xl shadow-md transition font-bold text-base">
+                    ✨ สั่งซื้อสินค้า
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-purple-100 py-6 mt-12 text-center text-xs text-purple-400">
+        <p class="font-cute text-purple-600 mb-1">By biw Shop Made with 💜 & Love</p>
+        <p>© 2026 All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript สำหรับระบบตะกร้า -->
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCartUI();
+            alert(`เพิ่ม "${name}" ลงตะกร้าเรียบร้อยแล้วค่ะ 💜`);
         }
 
-        /* Navbar */
-        nav {
-            background: rgba(10, 22, 41, 0.95);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #1a2f4c;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.innerText = totalCount;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = `<p class="text-gray-400 text-center py-8 font-light text-sm">ยังไม่มีสินค้าในตะกร้าจ้า 🥺</p>`;
+                cartTotal.innerText = '0 ฿';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                html += `
+                    <div class="flex justify-between items-center bg-purple-50 p-3 rounded-xl border border-purple-100">
+                        <div>
+                            <h4 class="font-cute font-bold text-purple-900 text-sm">${item.name}</h4>
+                            <p class="text-xs text-purple-500">${item.price} ฿ × ${item.quantity}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold text-purple-900 text-sm">${item.price * item.quantity} ฿</span>
+                            <button onclick="removeItem(${index})" class="text-red-400 hover:text-red-600 text-xs px-2 py-1"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+            cartItems.innerHTML = html;
+            cartTotal.innerText = total + ' ฿';
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0088ff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
         }
 
-        .logo i {
-            background: #0088ff;
-            color: white;
-            padding: 8px;
-            border-radius: 50%;
-            font-size: 1.2rem;
+        function checkout() {
+            if (cart.length === 0) {
+                alert('ยังไม่มีสินค้าในตะกร้าเลยค่ะ! 🛍️');
+                return;
+            }
+            alert('ขอบคุณสำหรับการสั่งซื้อจากร้าน By biw Shop ค่ะ! 💕');
+            cart = [];
+            updateCartUI();
+            toggleCart();
         }
+    </script>
+</body>
+</html>
 
-        /* Hero Banner */
-        .hero {
-            background: radial-gradient(circle at center, #0e274e 0%, #060d19 100%);
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 1px solid #112540;
-        }
-
-        .hero h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .hero h1 span {
-            color: #00d2ff;
-        }
-
-        .hero p {
-            color: #8fa0b5;
-            margin-bottom: 25px;
-            font-size: 1rem;
-        }
-
-        .btn-main {
-            background: linear-gradient(90deg, #0072ff, #00c6ff);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: 600;
-            display: inline-block;
-            box-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
-            transition: 0.3s;
-        }
-
-        .btn-main:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(0, 198, 255, 0.7);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Category Bar */
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .cat-card {
-            background: #0d1e36;
-            border: 1px solid #1c355a;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .cat-card:hover, .cat-card.active {
-            background: #0066ff;
-            border-color: #00d2ff;
-        }
-
-        .cat-card i {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .cat-card h4 {
-            font-size: 0.9rem;
-        }
-
-        /* Section Title */
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            display: flex;
-            align-
 
